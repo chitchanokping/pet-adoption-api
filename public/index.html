@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pawfect Home | Pet Adoption</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- 🐾 NAVIGATION -->
+  <header class="navbar">
+
+    <div class="logo">🐾 Pawfect Home</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#pets">Our Pets</a>
+      <a href="#about">About</a>
+    </nav>
+
+  </header>
+
+
+  <main>
+
+    <!-- 🌷 HERO -->
+    <section class="hero" id="home">
+
+      <div class="hero-text">
+
+        <p class="small-title">
+          FIND YOUR NEW BEST FRIEND
+        </p>
+
+        <h1>
+          Give a little love,<br>
+          get a lifetime of <span>paws.</span>
+        </h1>
+
+        <p class="description">
+          Meet adorable pets waiting for a loving home.
+          Your new best friend might be just one click away.
+        </p>
+
+        <a href="#pets" class="primary-button">
+          Meet Our Pets 🐾
+        </a>
+
+      </div>
+
+
+      <div class="hero-card">
+
+        <div class="hero-pet">🐶</div>
+
+        <h3>Meet your new best friend</h3>
+
+        <p>Where new friendships begin.</p>
+
+        <div class="mini-pets">
+          <span>🐱</span>
+          <span>🐰</span>
+          <span>🐕</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- 🐾 PET MANAGEMENT -->
+    <section class="pets-section" id="pets">
+
+      <p class="section-label">MEET THE FAMILY</p>
+
+      <h2>Pets looking for a home 🏡</h2>
+
+      <p class="section-description">
+        Search, filter, add, edit and manage our lovely pets.
+      </p>
+
+
+      <!-- 🔎 SEARCH & FILTER -->
+      <div class="toolbar">
+
+        <div class="search-box">
+          <span>🔎</span>
+
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search by name..."
+          >
+        </div>
+
+
+        <select id="species-filter">
+          <option value="">All Species</option>
+          <option value="Cat">Cats</option>
+          <option value="Dog">Dogs</option>
+          <option value="Rabbit">Rabbits</option>
+        </select>
+
+
+        <select id="gender-filter">
+          <option value="">All Genders</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+
+
+        <select id="status-filter">
+          <option value="">All Status</option>
+          <option value="Available">Available</option>
+          <option value="Adopted">Adopted</option>
+        </select>
+
+
+        <button
+          id="add-pet-button"
+          class="add-button"
+        >
+          + Add New Pet
+        </button>
+
+      </div>
+
+
+      <!-- 🐶 PET CARDS -->
+      <div id="pet-list" class="pet-grid"></div>
+
+
+      <!-- No results -->
+      <div id="empty-state" class="empty-state hidden">
+        <div>🐾</div>
+        <h3>No pets found</h3>
+        <p>Try changing your search or filters.</p>
+      </div>
+
+    </section>
+
+
+    <!-- 💗 ABOUT -->
+    <section class="about" id="about">
+
+      <h2>Every pet deserves a loving home. 💗</h2>
+
+      <p>
+        Pawfect Home helps organize information about pets
+        and their current adoption status.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    🐾 Pawfect Home — Pet Adoption API Project
+  </footer>
+
+
+  <!-- ================================================= -->
+  <!-- 🌷 ADD / EDIT PET MODAL -->
+  <!-- ================================================= -->
+
+  <div id="pet-modal" class="modal hidden">
+
+    <div class="modal-card">
+
+      <button
+        id="close-modal"
+        class="close-button"
+        type="button"
+      >
+        ×
+      </button>
+
+
+      <p class="modal-label">PAWFECT HOME</p>
+
+      <h2 id="modal-title">
+        Add a New Pet 🐾
+      </h2>
+
+      <p class="modal-description">
+        Fill in the information below.
+      </p>
+
+
+      <form id="pet-form">
+
+        <input
+          type="hidden"
+          id="pet-id"
+        >
+
+
+        <div class="form-group">
+
+          <label for="pet-name">
+            Pet Name
+          </label>
+
+          <input
+            type="text"
+            id="pet-name"
+            placeholder="e.g. Mochi"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="pet-species">
+            Species
+          </label>
+
+          <select id="pet-species" required>
+
+            <option value="">
+              Select species
+            </option>
+
+            <option value="Cat">Cat</option>
+            <option value="Dog">Dog</option>
+            <option value="Rabbit">Rabbit</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="pet-age">
+            Age
+          </label>
+
+          <input
+            type="number"
+            id="pet-age"
+            min="0"
+            placeholder="e.g. 2"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="pet-gender">
+            Gender
+          </label>
+
+          <select id="pet-gender" required>
+
+            <option value="">
+              Select gender
+            </option>
+
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="pet-status">
+            Adoption Status
+          </label>
+
+          <select id="pet-status" required>
+
+            <option value="Available">
+              Available
+            </option>
+
+            <option value="Adopted">
+              Adopted
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <p
+          id="form-message"
+          class="form-message"
+        ></p>
+
+
+        <div class="form-actions">
+
+          <button
+            type="button"
+            id="cancel-button"
+            class="secondary-button"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="save-button"
+          >
+            Save Pet 🐾
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- 🗑️ DELETE CONFIRMATION -->
+  <div id="delete-modal" class="modal hidden">
+
+    <div class="modal-card delete-card">
+
+      <div class="delete-icon">🐾</div>
+
+      <h2>Say goodbye?</h2>
+
+      <p>
+        Are you sure you want to remove
+        <strong id="delete-pet-name"></strong>
+        from the list?
+      </p>
+
+      <div class="form-actions">
+
+        <button
+          id="cancel-delete"
+          class="secondary-button"
+        >
+          Keep Pet
+        </button>
+
+        <button
+          id="confirm-delete"
+          class="delete-confirm-button"
+        >
+          Delete
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- 🌸 TOAST MESSAGE -->
+  <div id="toast" class="toast"></div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
